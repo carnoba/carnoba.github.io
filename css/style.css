@@ -570,14 +570,14 @@ code, .mono { font-family: var(--mono); }
 }
 
 /* --- Cursor spotlight --- */
-.project-card::after, .cert-card::after, .glance-card::after {
+.project-card::after, .cert-card::after, .glance-card::after, .beyond-card::after {
   content: "";
   position: absolute; inset: 0;
   background: radial-gradient(360px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(212, 163, 115, 0.06), transparent 62%);
   opacity: 0; transition: opacity 260ms ease;
   pointer-events: none;
 }
-.project-card:hover::after, .cert-card:hover::after, .glance-card:hover::after { opacity: 1; }
+.project-card:hover::after, .cert-card:hover::after, .glance-card:hover::after, .beyond-card:hover::after { opacity: 1; }
 .project-card > *, .cert-card > *, .glance-card > * { position: relative; z-index: 1; }
 
 /* --- Status pulse --- */
@@ -662,6 +662,46 @@ code, .mono { font-family: var(--mono); }
   animation-delay: var(--d, 0ms);
 }
 
+
+/* --- Beyond Code --- */
+.beyond-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+.beyond-card {
+  position: relative;
+  overflow: hidden;
+  background: #18191D;
+  border: 1px solid rgba(236, 233, 226, 0.08);
+  padding: 32px;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.beyond-card:hover { border-color: rgba(236, 233, 226, 0.16); transform: translateY(-2px); }
+.beyond-tag {
+  font-size: 0.67rem;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+.beyond-title {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.2vw, 1.95rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin-bottom: 14px;
+  color: var(--text);
+}
+.beyond-desc {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.beyond-desc strong { color: var(--text); font-weight: 500; }
+.beyond-desc em { color: var(--text); font-style: italic; }
+@media (max-width: 1020px) {
+  .beyond-grid { grid-template-columns: 1fr; }
+}
 /* --- Command palette trigger --- */
 .nav-actions { display: flex; align-items: center; gap: 10px; }
 .cmdk-trigger {

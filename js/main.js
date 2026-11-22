@@ -67,7 +67,7 @@
   }
 
   // Cursor spotlight on cards
-  var spotlightSelector = ".project-card, .cert-card, .glance-card";
+  var spotlightSelector = ".project-card, .cert-card, .glance-card, .beyond-card";
   function bindSpotlight(el) {
     el.addEventListener("pointermove", function (e) {
       if (prefersReduced) return;
@@ -93,7 +93,7 @@
     });
   }
   addRevealTargets(".bio-rail, .bio-chapter, .section-head, .exp-item, .research-item, .skill-group, .info-card, .contact-layout > div, .contact-link");
-  addRevealTargets(".project-card, .cert-card", true);
+  addRevealTargets(".project-card, .cert-card, .beyond-card", true);
 
   function revealAll() {
     revealTargets.forEach(function (el) { el.classList.add("revealed"); });
@@ -338,6 +338,7 @@
     { group: 'Navigate', label: 'Research & Competitions', meta: '#research', action: function(){ goTo('#research'); } },
     { group: 'Navigate', label: 'Certifications', meta: '#certifications', action: function(){ goTo('#certifications'); } },
     { group: 'Navigate', label: 'Skills', meta: '#skills', action: function(){ goTo('#skills'); } },
+    { group: 'Navigate', label: 'Beyond Code', meta: '#beyond', action: function(){ goTo('#beyond'); } },
     { group: 'Navigate', label: 'Contact', meta: '#contact', action: function(){ goTo('#contact'); } },
     { group: 'Profiles & Links', label: 'GitHub (@carnoba)', meta: 'github.com', action: function(){ openLink('https://github.com/carnoba'); } },
     { group: 'Profiles & Links', label: 'LinkedIn (in/carnoba)', meta: 'linkedin.com', action: function(){ openLink('https://www.linkedin.com/in/carnoba'); } },
