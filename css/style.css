@@ -619,6 +619,36 @@ code, .mono { font-family: var(--mono); }
   transform: translateY(0) scale(1);
 }
 
+
+/* --- Research enrichments --- */
+.research-meta-line { font-size: 0.82rem; color: var(--muted); margin-bottom: 10px; }
+.research-meta-line .mono { color: var(--text); font-size: 0.74rem; }
+.research-links { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; }
+.citation-block {
+  margin-top: 18px; padding: 16px 18px;
+  border: 1px solid var(--border); background: rgba(236,233,226,0.02);
+}
+.citation-label {
+  display: block; font-size: 0.64rem; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--muted-2); margin-bottom: 8px;
+}
+.citation-block p.mono { font-size: 0.72rem; line-height: 1.7; color: var(--muted); margin: 0; word-break: break-word; }
+.proof-callout {
+  margin: 20px 0; padding: 20px 22px;
+  border-left: 1px solid rgba(212,163,115,0.45);
+  background: rgba(212,163,115,0.04);
+}
+.proof-callout-label {
+  font-size: 0.66rem; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--accent); margin-bottom: 8px;
+}
+.proof-callout-context { font-size: 0.86rem; color: var(--muted); margin-bottom: 14px; }
+.proof-quote {
+  margin: 0; padding: 10px 0; border-top: 1px solid var(--border);
+}
+.proof-quote:first-of-type { border-top: 0; padding-top: 0; }
+.proof-quote p { font-size: 0.9rem; color: var(--text); margin: 0 0 4px; font-style: italic; }
+.proof-quote cite { font-size: 0.75rem; color: var(--muted-2); font-style: normal; font-family: var(--mono); }
 /* --- Reduced motion / fail-safe --- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
@@ -635,3 +665,4 @@ code, .mono { font-family: var(--mono); }
     transform: none !important;
   }
 }
+
