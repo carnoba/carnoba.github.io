@@ -668,21 +668,21 @@ code, .mono { font-family: var(--mono); }
 .glance-card { overflow: hidden; }
 .glance-avatar-wrap {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 16px;
-  margin: -36px -36px 24px;
-  padding: 28px 36px 24px;
-  border-bottom: 1px solid rgba(212, 163, 115, 0.2);
-  background: linear-gradient(180deg, rgba(212,163,115,0.06) 0%, rgba(24,25,29,0) 100%);
+  text-align: center;
+  gap: 14px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(236, 233, 226, 0.08);
 }
 .glance-avatar {
-  width: 108px;
-  height: 108px;
+  width: 164px;
+  height: 164px;
   border-radius: 50%;
   overflow: hidden;
-  flex-shrink: 0;
-  border: 2px solid rgba(212, 163, 115, 0.45);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  border: 2px solid rgba(212, 163, 115, 0.5);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.45);
   background: #111214;
 }
 .glance-avatar img {
@@ -691,7 +691,6 @@ code, .mono { font-family: var(--mono); }
   object-fit: cover;
   object-position: center center;
   display: block;
-  filter: contrast(1.03) saturate(0.96);
 }
 .glance-avatar-meta { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .glance-name { font-family: var(--serif); font-size: 1.35rem; line-height: 1.15; color: var(--text); }
