@@ -1,3 +1,26 @@
+try {
+  (function startPKTClock() {
+    function tick() {
+      var el = document.getElementById('pkt-clock');
+      if (!el) return;
+      try {
+        var formatted = new Intl.DateTimeFormat('en-US', {
+          timeZone: 'Asia/Karachi',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true
+        }).format(new Date());
+        el.textContent = formatted + ' PKT';
+      } catch (err) {
+        var d = new Date(new Date().getTime() + (5 * 3600 * 1000));
+        el.textContent = d.toUTCString().slice(17, 25) + ' PKT';
+      }
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+} catch (e) {}
 /* carnoba.github.io — vanilla JS */
 (function () {
   "use strict";
@@ -452,22 +475,6 @@
   });
 })();
 
-// Live Pakistan (Asia/Karachi) clock - single instance
-function updatePKTClock() {
-  const el = document.getElementById('pkt-clock');
-  if (!el) return;
-  const now = new Intl.DateTimeFormat('en-US', {
-    timeZone: 'Asia/Karachi',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: true
-  }).format(new Date());
-  el.textContent = `${now} PKT`;
-}
-updatePKTClock();
-document.addEventListener('DOMContentLoaded', updatePKTClock);
-setInterval(updatePKTClock, 1000);
 
 // Live GitHub & PyPI telemetry
 (function(){

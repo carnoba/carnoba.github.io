@@ -664,32 +664,40 @@ code, .mono { font-family: var(--mono); }
 
 
 
-/* --- Glance portrait --- */
+/* --- Glance avatar --- */
 .glance-card { overflow: hidden; }
-.glance-portrait {
-  width: 100%;
-  height: 250px;
-  overflow: hidden;
-  border-radius: 10px 10px 0 0;
-  position: relative;
-  margin: -36px -36px 16px;
+.glance-avatar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: -36px -36px 24px;
+  padding: 28px 36px 24px;
   border-bottom: 1px solid rgba(212, 163, 115, 0.2);
-  background: #18191D;
+  background: linear-gradient(180deg, rgba(212,163,115,0.06) 0%, rgba(24,25,29,0) 100%);
 }
-.glance-portrait img {
+.glance-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: 2px solid rgba(212, 163, 115, 0.45);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  background: #111214;
+}
+.glance-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center 15%;
   display: block;
-  filter: contrast(1.03) saturate(0.95);
+  filter: contrast(1.03) saturate(0.96);
 }
-.glance-portrait::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, #18191D 4%, rgba(24, 25, 29, 0.25) 45%, transparent 100%);
-  pointer-events: none;
+.glance-avatar-meta { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.glance-name { font-family: var(--serif); font-size: 1.35rem; line-height: 1.15; color: var(--text); }
+.glance-handle { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.02em; }
+@media (max-width: 720px) {
+  .glance-avatar-wrap { margin: -36px -36px 20px; padding: 24px 36px 20px; }
 }
 .mono-live {
   font-family: var(--mono);
@@ -748,7 +756,7 @@ code, .mono { font-family: var(--mono); }
   white-space: nowrap;
   letter-spacing: 0.01em;
 }
-.pkt-live-time { opacity: 1; visibility: visible; }
+.pkt-live-time { opacity: 1; visibility: visible; font-family: var(--mono); font-size: 0.82em; color: var(--accent); letter-spacing: 0.01em; white-space: nowrap; }
 @media (max-width: 860px) { .nav-clock { display: none; } }/* --- Command palette trigger --- */
 .nav-actions { display: flex; align-items: center; gap: 10px; }
 .cmdk-trigger {

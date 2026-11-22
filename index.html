@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=4">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111214'/%3E%3Ctext x='32' y='39' font-family='Georgia,serif' font-size='30' fill='%23D4A373' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
   <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt">
 </head>
@@ -85,8 +85,14 @@
 
         <aside class="hero-aside" aria-label="At a glance">
           <div class="glance-card">
-            <div class="glance-portrait">
-              <img src="assets/profile.png" alt="Portrait of Syed Muhammad Haris" width="2124" height="2016" loading="eager" decoding="async" onerror="this.parentElement.style.display='none'">
+            <div class="glance-avatar-wrap">
+              <div class="glance-avatar">
+                <img src="assets/profile.png?v=2" alt="Syed Muhammad Haris (@carnoba)">
+              </div>
+              <div class="glance-avatar-meta">
+                <span class="glance-name">Syed Muhammad Haris</span>
+                <span class="glance-handle">@carnoba · Karachi, PK</span>
+              </div>
             </div>
             <p class="glance-label">At a glance</p>
             <div class="glance-list">
@@ -108,7 +114,7 @@
               </div>
               <div class="glance-item">
                 <span class="glance-key">Based in</span>
-                <span class="glance-value">Karachi, Pakistan · <span id="pkt-clock" class="pkt-live-time mono-live">10:19 PM PKT</span></span>
+                <span class="glance-value">Karachi, Pakistan · <span id="pkt-clock" class="pkt-live-time">Loading PKT...</span></span>
               </div>
               <div class="glance-item">
                 <span class="glance-key">Current focus</span>
@@ -554,6 +560,7 @@
     "alternateName": "carnoba",
     "birthDate": "2007-05-03",
     "url": "https://carnoba.github.io/",
+    "image": "https://carnoba.github.io/assets/profile.png",
     "jobTitle": "Data Scientist, AI & Machine Learning Engineer",
     "affiliation": "Dawood University of Engineering & Technology (DUET)",
     "address": {
@@ -595,6 +602,29 @@
   </div>
   <div class="cmdk-toast" id="cmdk-toast" aria-live="polite" aria-atomic="true"></div>
 
-  <script src="js/main.js"></script>
+  <script>
+    (function startPKTClock() {
+      function tick() {
+        var el = document.getElementById('pkt-clock');
+        if (!el) return;
+        try {
+          var formatted = new Intl.DateTimeFormat('en-US', {
+            timeZone: 'Asia/Karachi',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true
+          }).format(new Date());
+          el.textContent = formatted + ' PKT';
+        } catch (err) {
+          var d = new Date(new Date().getTime() + (5 * 3600 * 1000));
+          el.textContent = d.toUTCString().slice(17, 25) + ' PKT';
+        }
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+  <script src="js/main.js?v=4"></script>
 </body>
 </html>
