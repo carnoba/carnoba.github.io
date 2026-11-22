@@ -34,6 +34,7 @@
         <span class="brand-mark">@carnoba</span>
       </a>
       <div class="nav-actions">
+        <span class="nav-clock pkt-live-time mono-live" aria-label="Pakistan Standard Time">--:--:-- -- PKT</span>
         <button class="cmdk-trigger" type="button" id="cmdk-trigger" aria-label="Open command palette (Ctrl+K)">
           <span class="cmdk-trigger-icon" aria-hidden="true">⌘K</span>
         </button>
@@ -86,7 +87,7 @@
         <aside class="hero-aside" aria-label="At a glance">
           <div class="glance-card">
             <figure class="glance-photo">
-              <img src="assets/profile.jpeg" alt="Portrait of Syed Muhammad Haris" class="glance-photo-img" width="1200" height="1600" loading="eager" decoding="async">
+              <img src="assets/my-photo.jfif" alt="Portrait of Syed Muhammad Haris" class="glance-photo-img" width="2124" height="2016" loading="eager" decoding="async">
               <span class="glance-photo-overlay" aria-hidden="true"></span>
             </figure>
             <p class="glance-label">At a glance</p>
@@ -109,7 +110,7 @@
               </div>
               <div class="glance-item">
                 <span class="glance-key">Based in</span>
-                <span class="glance-value">Karachi, Pakistan · <span id="pkt-clock" class="mono-live">10:19 PM PKT</span></span>
+                <span class="glance-value">Karachi, Pakistan · <span id="pkt-clock" class="pkt-live-time mono-live">10:19 PM PKT</span></span>
               </div>
               <div class="glance-item">
                 <span class="glance-key">Current focus</span>
@@ -527,7 +528,7 @@
 
       <footer class="site-footer">
         <p>&copy; <span id="year"></span> Syed Muhammad Haris</p>
-        <p class="mono muted">Karachi, Pakistan</p>
+        <p class="mono muted">Karachi, Pakistan · <span class="pkt-live-time mono-live">--:--:-- -- PKT</span></p>
       </footer>
     </section>
 
@@ -555,7 +556,6 @@
     "alternateName": "carnoba",
     "birthDate": "2007-05-03",
     "url": "https://carnoba.github.io/",
-    "image": "https://carnoba.github.io/assets/profile.jpeg",
     "jobTitle": "Data Scientist, AI & Machine Learning Engineer",
     "affiliation": "Dawood University of Engineering & Technology (DUET)",
     "address": {

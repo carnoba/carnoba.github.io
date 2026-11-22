@@ -452,28 +452,27 @@
   });
 })();
 
-// Live Karachi clock
-(function(){
-  var el = document.getElementById('pkt-clock');
-  if (!el) return;
-  var fmt = null;
+// Live Karachi / PKT clock
+function syncPakistanClock() {
+  var text = '--:--:-- -- PKT';
   try {
-    fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Karachi', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
-  } catch(e) {}
-  function tick(){
-    try {
-      if (fmt && fmt.formatToParts) {
-        var parts = fmt.formatToParts(new Date());
-        var get = function(t){ var p = parts.find(function(x){ return x.type === t; }); return p ? p.value : ''; };
-        el.textContent = get('hour') + ':' + get('minute') + ':' + get('second') + ' ' + get('dayPeriod') + ' PKT';
-      } else {
-        el.textContent = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Karachi' }) + ' PKT';
-      }
-    } catch(e) { /* keep fallback */ }
+    text = new Intl.DateTimeFormat('en-US', {
+      timeZone: 'Asia/Karachi',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: true
+    }).format(new Date()) + ' PKT';
+  } catch (e) {
+    try { text = new Date().toLocaleTimeString('en-US') + ' PKT'; } catch (_) {}
   }
-  tick();
-  setInterval(tick, 1000);
-})();
+  document.querySelectorAll('.pkt-live-time').forEach(function (el) {
+    el.textContent = text;
+  });
+}
+syncPakistanClock();
+document.addEventListener('DOMContentLoaded', syncPakistanClock);
+setInterval(syncPakistanClock, 1000);
 
 // Live GitHub & PyPI telemetry
 (function(){
