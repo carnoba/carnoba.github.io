@@ -263,25 +263,6 @@
 })();
 
 
-// Project image lightbox
-document.querySelectorAll('[data-lightbox-src]').forEach(function (btn) {
-  btn.addEventListener('click', function () {
-    var src = btn.getAttribute('data-lightbox-src');
-    var alt = btn.getAttribute('data-lightbox-alt') || 'Project screenshot';
-    if (!modal) return;
-    lastFocus = document.activeElement;
-    modalIssuer.textContent = 'Project preview';
-    modalTitle.textContent = alt;
-    modalMedia.innerHTML = '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(alt) + '" loading="lazy">';
-    modalDetails.innerHTML = '';
-    modal.classList.add('open');
-    modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-    var closeBtn = modal.querySelector('.modal-close');
-    if (closeBtn) closeBtn.focus();
-  });
-});
-
 // Hero staggered reveal
 (function(){
   var hero = document.querySelector('.hero');
