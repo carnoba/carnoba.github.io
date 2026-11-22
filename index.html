@@ -85,6 +85,10 @@
 
         <aside class="hero-aside" aria-label="At a glance">
           <div class="glance-card">
+            <figure class="glance-photo">
+              <img src="assets/profile.jpeg" alt="Portrait of Syed Muhammad Haris" class="glance-photo-img" width="1200" height="1600" loading="eager" decoding="async">
+              <span class="glance-photo-overlay" aria-hidden="true"></span>
+            </figure>
             <p class="glance-label">At a glance</p>
             <div class="glance-list">
               <div class="glance-item">
@@ -105,7 +109,7 @@
               </div>
               <div class="glance-item">
                 <span class="glance-key">Based in</span>
-                <span class="glance-value">Karachi, Pakistan · <span class="mono" id="karachi-time">--:-- -- PKT</span></span>
+                <span class="glance-value">Karachi, Pakistan · <span id="pkt-clock" class="mono-live">10:19 PM PKT</span></span>
               </div>
               <div class="glance-item">
                 <span class="glance-key">Current focus</span>
@@ -144,7 +148,7 @@
           <article class="bio-chapter">
             <p class="chapter-meta"><span class="mono">2020–2025</span> <span class="chapter-sep">/</span> Early ventures</p>
             <h3>Early Ventures &amp; Formulation R&amp;D</h3>
-            <p>Founded <em>Freshwaves</em> in my teens in Karachi—developing 100+ detergent and industrial cleaning formulations, modeling raw material costs in Excel, managing B2B distribution, and navigating the 2022–2023 imported raw material cost surge before exiting. In parallel, I scaled <em>Carnix Network</em> to <span class="count-up" data-target="2600" data-suffix="+" data-format="comma">2,600+</span> active members, building the technical infrastructure and moderation systems that kept a growing community healthy.</p>
+            <p>Founded <em>Freshwaves</em> in my teens in Karachi—developing 100+ detergent and industrial cleaning formulations, modeling raw material costs in Excel, managing B2B distribution, and navigating the 2022–2023 imported raw material cost surge before exiting. In parallel, I scaled <em>Carnix Network</em> to <span class="count-up" data-target="2600" data-suffix="+" data-format="comma">2,600+</span> active members, architecting custom Discord server infrastructure—role/permission hierarchies, automated moderation &amp; verification bots, ticket workflows, and live tier-testing queues—that kept a growing community healthy (now archived/retired after a multi-year run).</p>
           </article>
 
           <article class="bio-chapter">
@@ -205,7 +209,8 @@
             <p class="exp-org">Carnix Network</p>
             <ul class="exp-points">
               <li>Founded and managed technical infrastructure and community growth, executing full-scale site migrations and architectural updates.</li>
-              <li>Managed and secured a database of 2,600+ active Discord members with automated bots and data-driven engagement analytics.</li>
+              <li>Architected and operated a custom Discord server for 2,600+ active members—designing role/permission hierarchies, automated moderation &amp; verification bots, ticket workflows, and live tier-testing queues (server now archived/retired after a multi-year run).</li>
+              <li>Used data-driven engagement analytics to keep the community healthy, secure, and active at scale.</li>
             </ul>
           </div>
         </article>
@@ -445,7 +450,7 @@
             <div class="skill-group">
               <h3 class="skill-group-title">Full-Stack &amp; Systems</h3>
               <div class="skill-pills">
-                <span class="pill">PyQt6</span><span class="pill">Node.js</span><span class="pill">Express</span><span class="pill">Socket.io</span><span class="pill">Git</span><span class="pill">Modal Cloud GPUs</span><span class="pill">GitHub Actions CI</span><span class="pill">Bash</span><span class="pill">Selenium</span><span class="pill">Playwright</span>
+                <span class="pill">PyQt6</span><span class="pill">Node.js</span><span class="pill">Express</span><span class="pill">Socket.io</span><span class="pill">Discord Server Architecture</span><span class="pill">Discord Bot Development</span><span class="pill">Git</span><span class="pill">Modal Cloud GPUs</span><span class="pill">GitHub Actions CI</span><span class="pill">Bash</span><span class="pill">Selenium</span><span class="pill">Playwright</span>
               </div>
             </div>
             <div class="skill-group">
@@ -471,13 +476,6 @@
               <p class="mono muted">2024–2026</p>
             </div>
           </div>
-          <div class="info-card">
-            <p class="info-card-label">Chess.com</p>
-            <div class="chess-row">
-              <div><span class="chess-rating mono">1342</span><span class="chess-mode">Bullet</span></div>
-              <div><span class="chess-rating mono">1256</span><span class="chess-mode">Rapid</span></div>
-            </div>
-          </div>
         </aside>
       </div>
     </section>
@@ -498,7 +496,7 @@
         <article class="beyond-card spotlight-card">
           <p class="beyond-tag mono">LT2 NETHERITE POTION · HT4+ ALL MODES</p>
           <h3 class="beyond-title">Minecraft PvP Mastery &amp; Tournament Operations</h3>
-          <p class="beyond-desc">Reached <strong>LT2 (Low Tier 2) in Netherite Potion (NethPot)</strong>—a rare high-skill mechanical milestone—while maintaining <strong>HT4+ (High Tier 4 or above)</strong> across all competitive PvP modes and regularly dominating outnumbered 1vX team engagements. Mentored, trained, and tier-tested <strong>2,600+ players</strong> and hosted large-scale competitive tournaments for community engagement through <em>Carnix Network</em>.</p>
+          <p class="beyond-desc">Reached <strong>LT2 (Low Tier 2) in Netherite Potion (NethPot)</strong>—a rare high-skill mechanical milestone—while maintaining <strong>HT4+ (High Tier 4 or above)</strong> across all competitive PvP modes and regularly dominating outnumbered 1vX team engagements. Mentored, trained, and tier-tested <strong>2,600+ players</strong> and hosted large-scale competitive tournaments for community engagement through <em>Carnix Network</em>. I also architected its custom Discord server—role/permission hierarchies, automated moderation &amp; verification bots, ticket workflows, and live tier-testing queues for 2,600+ active members (now archived/retired after a multi-year run).</p>
         </article>
         <article class="beyond-card spotlight-card">
           <p class="beyond-tag mono">110K+ VIDEO VIEWS · CREATIVE MEDIA</p>
@@ -513,8 +511,8 @@
       <div class="contact-layout">
         <div>
           <p class="eyebrow">Contact</p>
-          <h2 id="contact-title" class="section-title">Let's build something<br>worth shipping.</h2>
-          <p class="section-lead">Open to collaborations on ML systems, quantitative tooling, AI agents, and data-driven products.</p>
+          <h2 id="contact-title" class="section-title">Let’s Talk, Consult &amp; Build Together</h2>
+          <p class="section-lead">Whether you need technical consultation on AI automation, data pipelines, or commercial analytics—or simply have a question, want feedback on an idea, or need guidance getting unstuck—my inbox is always open. Feel free to reach out for collaborations, advisory chats, or any help I can offer.</p>
           <a href="mailto:carnoba9@gmail.com" class="btn btn--primary">carnoba9@gmail.com</a>
         </div>
         <div class="contact-links">
@@ -557,6 +555,7 @@
     "alternateName": "carnoba",
     "birthDate": "2007-05-03",
     "url": "https://carnoba.github.io/",
+    "image": "https://carnoba.github.io/assets/profile.jpeg",
     "jobTitle": "Data Scientist, AI & Machine Learning Engineer",
     "affiliation": "Dawood University of Engineering & Technology (DUET)",
     "address": {

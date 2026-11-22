@@ -454,7 +454,7 @@
 
 // Live Karachi clock
 (function(){
-  var el = document.getElementById('karachi-time');
+  var el = document.getElementById('pkt-clock');
   if (!el) return;
   var fmt = null;
   try {
@@ -462,14 +462,14 @@
   } catch(e) {}
   function tick(){
     try {
-      var parts = fmt ? fmt.formatToParts(new Date()) : null;
-      if (parts) {
+      if (fmt && fmt.formatToParts) {
+        var parts = fmt.formatToParts(new Date());
         var get = function(t){ var p = parts.find(function(x){ return x.type === t; }); return p ? p.value : ''; };
         el.textContent = get('hour') + ':' + get('minute') + ':' + get('second') + ' ' + get('dayPeriod') + ' PKT';
       } else {
-        el.textContent = new Date().toLocaleTimeString('en-US') + ' PKT';
+        el.textContent = new Date().toLocaleTimeString('en-US', { timeZone: 'Asia/Karachi' }) + ' PKT';
       }
-    } catch(e) { el.textContent = '--:-- -- PKT'; }
+    } catch(e) { /* keep fallback */ }
   }
   tick();
   setInterval(tick, 1000);

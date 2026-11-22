@@ -19,7 +19,7 @@
 - **AI Receptionist & Appointment Handler**: Built with Retell AI, n8n, and Make.com.
 - **[FREE-google-maps-scraper-bot](https://github.com/carnoba/FREE-google-maps-scraper-bot)**: Open-source Google Maps scraping tool.
 - **Real-Time NYC Taxi Surge Pricing Engine**: PySpark & XGBoost on 2.8M+ records.
-- **Carnix Network**: Community with 2,600+ members.
+- **Carnix Network**: Community with 2,600+ members; custom Discord server architecture & bot development (role/permission hierarchies, automated moderation & verification bots, ticket workflows, live tier-testing queues) — now archived/retired after a multi-year run.
 - **Easy Cash**: Financial/commercial project.
 
 ## Research, Competitive ML & Market Analysis
@@ -34,7 +34,7 @@
 
 - **Agar Plastics Pvt Ltd**: Commercial Operations & Data Analyst (Jul–Sep 2026).
 - **Visa Bridge**: Data Science Intern (Jan–Feb 2026).
-- **Carnix Network**: Owner (2022–2025).
+- **Carnix Network**: Owner (2022-2025). Architected custom Discord server infrastructure and bot development (roles/permissions, moderation/verification bots, ticket workflows, live tier-testing queues) for 2,600+ members; server now archived/retired.
 - **Freshwaves**: Founder, chemical manufacturing (2020–2025).
 
 ## Verified Credentials
@@ -50,7 +50,7 @@
 ## Beyond Code & Extracurricular Achievements
 
 - **Competitive Chess & Tactical FPS**: Competitive speed and rapid chess player (1342 Bullet, 1256 Rapid, 1445 Peak Bullet); topped multiple competitive leagues including 1st place in Crystal Division on Chess.com. Also enjoys tactical FPS gaming (CS:GO) for high-pressure split-second decision-making and team coordination.
-- **Minecraft PvP Mastery & Tournament Operations**: Reached LT2 (Low Tier 2) in Netherite Potion (NethPot) — a rare high-skill mechanical milestone — while maintaining HT4+ (High Tier 4 or above) across all competitive PvP modes and regularly dominating outnumbered 1vX team engagements. Mentored, trained, and tier-tested 2,600+ players and hosted large-scale competitive tournaments for community engagement through Carnix Network.
+- **Minecraft PvP Mastery & Tournament Operations**: Reached LT2 (Low Tier 2) in Netherite Potion (NethPot) — a rare high-skill mechanical milestone — while maintaining HT4+ (High Tier 4 or above) across all competitive PvP modes and regularly dominating outnumbered 1vX team engagements. Mentored, trained, and tier-tested 2,600+ players and hosted large-scale competitive tournaments for community engagement through Carnix Network; architected custom Discord server infrastructure (role/permission hierarchies, automated moderation & verification bots, ticket workflows, live tier-testing queues) for 2,600+ active members (now archived/retired after a multi-year run).
 - **YouTube, 2D Stick-Fight Animation & Design**: Produced and edited YouTube content with a flagship video surpassing 110,000+ views. Passionate about crafting 2D stick-figure fight animations, video editing (CapCut, Filmora), and graphic design in Adobe Photoshop.
 
 ## Canonical Links
