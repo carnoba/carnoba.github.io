@@ -452,27 +452,22 @@
   });
 })();
 
-// Live Karachi / PKT clock
-function syncPakistanClock() {
-  var text = '--:--:-- -- PKT';
-  try {
-    text = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'Asia/Karachi',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: true
-    }).format(new Date()) + ' PKT';
-  } catch (e) {
-    try { text = new Date().toLocaleTimeString('en-US') + ' PKT'; } catch (_) {}
-  }
-  document.querySelectorAll('.pkt-live-time').forEach(function (el) {
-    el.textContent = text;
-  });
+// Live Pakistan (Asia/Karachi) clock - single instance
+function updatePKTClock() {
+  const el = document.getElementById('pkt-clock');
+  if (!el) return;
+  const now = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Karachi',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true
+  }).format(new Date());
+  el.textContent = `${now} PKT`;
 }
-syncPakistanClock();
-document.addEventListener('DOMContentLoaded', syncPakistanClock);
-setInterval(syncPakistanClock, 1000);
+updatePKTClock();
+document.addEventListener('DOMContentLoaded', updatePKTClock);
+setInterval(updatePKTClock, 1000);
 
 // Live GitHub & PyPI telemetry
 (function(){

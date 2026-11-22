@@ -34,7 +34,6 @@
         <span class="brand-mark">@carnoba</span>
       </a>
       <div class="nav-actions">
-        <span class="nav-clock pkt-live-time mono-live" aria-label="Pakistan Standard Time">--:--:-- -- PKT</span>
         <button class="cmdk-trigger" type="button" id="cmdk-trigger" aria-label="Open command palette (Ctrl+K)">
           <span class="cmdk-trigger-icon" aria-hidden="true">⌘K</span>
         </button>
@@ -86,10 +85,9 @@
 
         <aside class="hero-aside" aria-label="At a glance">
           <div class="glance-card">
-            <figure class="glance-photo">
-              <img src="assets/my-photo.jfif" alt="Portrait of Syed Muhammad Haris" class="glance-photo-img" width="2124" height="2016" loading="eager" decoding="async">
-              <span class="glance-photo-overlay" aria-hidden="true"></span>
-            </figure>
+            <div class="glance-portrait">
+              <img src="assets/profile.png" alt="Portrait of Syed Muhammad Haris" width="2124" height="2016" loading="eager" decoding="async" onerror="this.parentElement.style.display='none'">
+            </div>
             <p class="glance-label">At a glance</p>
             <div class="glance-list">
               <div class="glance-item">
@@ -528,7 +526,7 @@
 
       <footer class="site-footer">
         <p>&copy; <span id="year"></span> Syed Muhammad Haris</p>
-        <p class="mono muted">Karachi, Pakistan · <span class="pkt-live-time mono-live">--:--:-- -- PKT</span></p>
+        <p class="mono muted">Karachi, Pakistan</p>
       </footer>
     </section>
 
