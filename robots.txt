@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://carnoba.github.io/sitemap.xml
