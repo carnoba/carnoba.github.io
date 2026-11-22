@@ -157,7 +157,6 @@
     { issuer: "HP LIFE Foundation", title: "Data Science & Analytics", date: "Verified credential", credentialId: "Available on request", verify: "https://www.life-global.org/", asset: "assets/certificates/1785609872085.jfif", type: "image" },
     { issuer: "The Open University (OpenLearn), UK", title: "Introduction to Bookkeeping & Accounting", date: "Verified credential", credentialId: "B190_1", verify: "https://www.open.edu/openlearn/", asset: "assets/certificates/1785652677040.jfif", type: "image", extraAsset: "assets/certificates/accounting B190_1_statement.pdf", extraType: "pdf" },
     { issuer: "Bank of America / Forage", title: "Investment Banking Virtual Experience", date: "Verified credential", credentialId: "Available on request", verify: "https://www.theforage.com/", asset: "assets/certificates/1785653064597.jfif", type: "image" },
-    { issuer: "AWS", title: "Cloud Practitioner Essentials", date: "Ongoing", credentialId: "In progress", verify: "https://aws.amazon.com/training/", asset: "assets/certificates/1785653183241.jfif", type: "image" },
     { issuer: "VisaBridge", title: "Data Science & Analytics Internship", date: "Feb 2026", credentialId: "Available on request", verify: "mailto:carnoba9@gmail.com", asset: "assets/certificates/1785653242301.jfif", type: "image", extraAsset: "assets/certificates/internship_certificate.pdf", extraType: "pdf" }
   ];
 
@@ -261,4 +260,78 @@
     modal.addEventListener("click", function (e) { if (e.target.closest("[data-modal-close]")) closeModal(); });
     document.addEventListener("keydown", function (e) { if (e.key === "Escape" && modal.classList.contains("open")) closeModal(); });
   }
+})();
+
+
+// Project image lightbox
+document.querySelectorAll('[data-lightbox-src]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var src = btn.getAttribute('data-lightbox-src');
+    var alt = btn.getAttribute('data-lightbox-alt') || 'Project screenshot';
+    if (!modal) return;
+    lastFocus = document.activeElement;
+    modalIssuer.textContent = 'Project preview';
+    modalTitle.textContent = alt;
+    modalMedia.innerHTML = '<img src="' + escapeHtml(src) + '" alt="' + escapeHtml(alt) + '" loading="lazy">';
+    modalDetails.innerHTML = '';
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    var closeBtn = modal.querySelector('.modal-close');
+    if (closeBtn) closeBtn.focus();
+  });
+});
+
+// Hero staggered reveal
+(function(){
+  var hero = document.querySelector('.hero');
+  if (!hero) return;
+  var targets = hero.querySelectorAll('.hero-badge, .hero-title, .hero-subtitle, .hero-lead, .hero-actions, .hero-socials, .glance-card');
+  targets.forEach(function(el, i){
+    el.classList.add('hero-anim');
+    el.style.setProperty('--d', (i * 90) + 'ms');
+  });
+  document.documentElement.classList.add('hero-loaded');
+  // failsafe
+  setTimeout(function(){ targets.forEach(function(el){ el.style.opacity='1'; el.style.transform='none'; }); }, 1400);
+})();
+
+// Animated key metrics count-up
+(function(){
+  var items = document.querySelectorAll('.count-up[data-target]');
+  if (!items.length) return;
+  function formatNum(val, el){
+    var decimals = parseInt(el.getAttribute('data-decimals')||'0',10);
+    var suffix = el.getAttribute('data-suffix')||'';
+    var comma = el.getAttribute('data-format') === 'comma';
+    var n = decimals ? val.toFixed(decimals) : Math.round(val).toString();
+    if (comma) n = Math.round(val).toLocaleString('en-US');
+    return n + suffix;
+  }
+  function animate(el){
+    if (el.__counted) return; el.__counted = true;
+    var target = parseFloat(el.getAttribute('data-target'));
+    var suffix = el.getAttribute('data-suffix')||'';
+    var decimals = parseInt(el.getAttribute('data-decimals')||'0',10);
+    var comma = el.getAttribute('data-format') === 'comma';
+    var duration = 1200;
+    var start = performance.now();
+    function tick(now){
+      var p = Math.min((now-start)/duration, 1);
+      var ease = 1 - Math.pow(1-p, 3);
+      var val = target * ease;
+      el.textContent = formatNum(val, el);
+      if (p < 1) requestAnimationFrame(tick);
+      else el.textContent = formatNum(target, el);
+    }
+    requestAnimationFrame(tick);
+  }
+  if (prefersReduced || !('IntersectionObserver' in window)) {
+    items.forEach(function(el){ el.textContent = formatNum(parseFloat(el.getAttribute('data-target')), el); });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ animate(e.target); obs.unobserve(e.target); } });
+  }, { threshold: 0.4 });
+  items.forEach(function(el){ obs.observe(el); });
 })();
