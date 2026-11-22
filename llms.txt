@@ -1,0 +1,59 @@
+﻿# Syed Muhammad Haris (carnoba)
+
+> Syed Muhammad Haris (@carnoba) is a Data Scientist, AI Engineer, and Commercial Operations Lead based in Karachi, Pakistan. He builds quantitative systems, machine learning pipelines, and autonomous agents grounded in commercial realities.
+
+## Identity & Education
+
+- **Name:** Syed Muhammad Haris (carnoba)
+- **Age/Born:** 19 years old, born May 3, 2007
+- **Location:** Karachi, Pakistan
+- **Education:** Pursuing B.S. Artificial Intelligence at Dawood University of Engineering & Technology (DUET, 2026–2030)
+- **Prior Education:** Pre-Engineering, Govt Degree College SRE Majeed (2024–2026)
+
+## Flagship Open-Source & AI Systems
+
+- **[FINRIX](https://pypi.org/project/finrix/)**: `pip install finrix` (v1.0.7 on PyPI). XAUUSD TFT + Modal A10G + FinBERT + 14-strategy backtester + 207 unit tests.
+- **Sisilic OS**: PyQt6 semiconductor BOM & wafer tracking system.
+- **Nexly**: CrewAI + Gemini B2B lead generation system.
+- **[ApexRetail Analytics](https://github.com/carnoba/apex-analytics)**: Interactive Python & Streamlit BI portal with live filtering, executive takeaways, and CSV export.
+- **AI Receptionist & Appointment Handler**: Built with Retell AI, n8n, and Make.com.
+- **[FREE-google-maps-scraper-bot](https://github.com/carnoba/FREE-google-maps-scraper-bot)**: Open-source Google Maps scraping tool.
+- **Real-Time NYC Taxi Surge Pricing Engine**: PySpark & XGBoost on 2.8M+ records.
+- **Carnix Network**: Community with 2,600+ members.
+- **Easy Cash**: Financial/commercial project.
+
+## Research, Competitive ML & Market Analysis
+
+- **Zenodo Preprint**: *"Village-Disjoint Validation and Parsimonious Feature Selection for Climate-Sensitive Child Mortality Risk Prediction in Uganda"* (Version 1.0 DOI: [10.5281/zenodo.23036631](https://doi.org/10.5281/zenodo.23036631), Concept DOI: [10.5281/zenodo.23036630](https://doi.org/10.5281/zenodo.23036630)).
+- **Zindi Africa AI4EAC Climate Risk Challenge**: Rank 384/1,626 (Top 23.6%), score `0.8175`.
+- **Kaggle Playground S6E9**: Rank 11 Public LB / Top 6% Private LB (214/3,575 teams).
+- **Alibaba Cloud AI Hackathon Pakistan 2026**: Team Lead.
+- **Market Analysis**: Investing.com XAU/USD (Gold) & Equities macro/technical analysis.
+
+## Commercial & Industrial Experience
+
+- **Agar Plastics Pvt Ltd**: Commercial Operations & Data Analyst (Jul–Sep 2026).
+- **Visa Bridge**: Data Science Intern (Jan–Feb 2026).
+- **Carnix Network**: Owner (2022–2025).
+- **Freshwaves**: Founder, chemical manufacturing (2020–2025).
+
+## Verified Credentials
+
+- IBM - Data Science / AI credentials
+- MongoDB - Database credentials
+- UniAthena / Cambridge - Professional credential
+- HP LIFE - Business/IT credential
+- OpenLearn - Academic credential
+- Bank of America (Forage) - Job simulation credential
+- Total: 8 verified certifications displayed on portfolio with inspectable credential modal.
+
+## Canonical Links
+
+- Website: [https://carnoba.github.io/](https://carnoba.github.io/)
+- GitHub: [https://github.com/carnoba](https://github.com/carnoba)
+- LinkedIn: [https://www.linkedin.com/in/carnoba](https://www.linkedin.com/in/carnoba)
+- PyPI (finrix): [https://pypi.org/project/finrix/](https://pypi.org/project/finrix/)
+- Kaggle: [https://www.kaggle.com/syeharis](https://www.kaggle.com/syeharis)
+- Zenodo: [https://doi.org/10.5281/zenodo.23036631](https://doi.org/10.5281/zenodo.23036631)
+- X: [https://x.com/Real_carnoba](https://x.com/Real_carnoba)
+- Instagram: [https://www.instagram.com/im_syedharis](https://www.instagram.com/im_syedharis)

@@ -316,3 +316,176 @@
   }, { threshold: 0.4 });
   items.forEach(function(el){ obs.observe(el); });
 })();
+// Command palette
+(function(){
+  var modal = document.getElementById('cmdk-modal');
+  var input = document.getElementById('cmdk-input');
+  var list = document.getElementById('cmdk-list');
+  var trigger = document.getElementById('cmdk-trigger');
+  if (trigger) { var isMac = /Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent); var icon = trigger.querySelector('.cmdk-trigger-icon'); if (icon) icon.textContent = isMac ? '⌘K' : 'Ctrl K'; trigger.setAttribute('aria-label', 'Open command palette (' + (isMac ? 'Cmd+K' : 'Ctrl+K') + ')'); }
+  var toast = document.getElementById('cmdk-toast');
+  if (!modal || !input || !list) return;
+
+  var commands = [
+    { group: 'Quick Actions', label: 'Copy "pip install finrix"', meta: 'clipboard', action: function(){ copyText('pip install finrix', 'Copied: pip install finrix'); } },
+    { group: 'Quick Actions', label: 'View CV', meta: 'open', action: function(){ window.open('assets/Syed_Muhammad_Haris_CV.pdf', '_blank', 'noopener'); } },
+    { group: 'Quick Actions', label: 'Download CV', meta: 'download', action: function(){ var a=document.createElement('a'); a.href='assets/Syed_Muhammad_Haris_CV.pdf'; a.download='Syed_Muhammad_Haris_CV.pdf'; document.body.appendChild(a); a.click(); a.remove(); } },
+    { group: 'Quick Actions', label: 'Copy Email Address', meta: 'clipboard', action: function(){ copyText('carnoba9@gmail.com', 'Email copied'); } },
+    { group: 'Navigate', label: 'Home', meta: '#home', action: function(){ goTo('#home'); } },
+    { group: 'Navigate', label: 'Biography', meta: '#biography', action: function(){ goTo('#biography'); } },
+    { group: 'Navigate', label: 'Experience', meta: '#experience', action: function(){ goTo('#experience'); } },
+    { group: 'Navigate', label: 'Projects', meta: '#projects', action: function(){ goTo('#projects'); } },
+    { group: 'Navigate', label: 'Research & Competitions', meta: '#research', action: function(){ goTo('#research'); } },
+    { group: 'Navigate', label: 'Certifications', meta: '#certifications', action: function(){ goTo('#certifications'); } },
+    { group: 'Navigate', label: 'Skills', meta: '#skills', action: function(){ goTo('#skills'); } },
+    { group: 'Navigate', label: 'Contact', meta: '#contact', action: function(){ goTo('#contact'); } },
+    { group: 'Profiles & Links', label: 'GitHub (@carnoba)', meta: 'github.com', action: function(){ openLink('https://github.com/carnoba'); } },
+    { group: 'Profiles & Links', label: 'LinkedIn (in/carnoba)', meta: 'linkedin.com', action: function(){ openLink('https://www.linkedin.com/in/carnoba'); } },
+    { group: 'Profiles & Links', label: 'PyPI (finrix)', meta: 'pypi.org', action: function(){ openLink('https://pypi.org/project/finrix/'); } },
+    { group: 'Profiles & Links', label: 'Kaggle (syeharis)', meta: 'kaggle.com', action: function(){ openLink('https://www.kaggle.com/syeharis'); } },
+    { group: 'Profiles & Links', label: 'Zenodo Paper (DOI: 10.5281/zenodo.23036631)', meta: 'zenodo.org', action: function(){ openLink('https://doi.org/10.5281/zenodo.23036631'); } },
+    { group: 'Profiles & Links', label: 'X (@carnoba)', meta: 'x.com', action: function(){ openLink('https://x.com/Real_carnoba'); } },
+    { group: 'Profiles & Links', label: 'Instagram (@carnoba)', meta: 'instagram.com', action: function(){ openLink('https://www.instagram.com/im_syedharis'); } }
+  ];
+
+  var filtered = commands.slice();
+  var activeIndex = 0;
+  var lastFocus = null;
+
+  function showToast(msg){
+    if (!toast) return;
+    toast.textContent = msg;
+    toast.classList.add('show');
+    clearTimeout(showToast._t);
+    showToast._t = setTimeout(function(){ toast.classList.remove('show'); }, 1800);
+  }
+  function copyText(text, msg){
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function(){ showToast(msg); }, function(){ fallbackCopy(text,msg); });
+    } else { fallbackCopy(text,msg); }
+  }
+  function fallbackCopy(text,msg){
+    var ta = document.createElement('textarea'); ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+    document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); showToast(msg); } catch(e){} ta.remove();
+  }
+  function openLink(url){ window.open(url, '_blank', 'noopener'); }
+  function goTo(hash){ var el = document.querySelector(hash); if (el) el.scrollIntoView({behavior: prefersReduced ? 'auto' : 'smooth', block:'start'}); }
+
+  function render(){
+    list.innerHTML = '';
+    if (!filtered.length) { list.innerHTML = '<div class="cmdk-empty">No matching commands</div>'; return; }
+    var currentGroup = '';
+    filtered.forEach(function(cmd, idx){
+      if (cmd.group !== currentGroup) {
+        currentGroup = cmd.group;
+        var g = document.createElement('div'); g.className='cmdk-group'; g.textContent = currentGroup; list.appendChild(g);
+      }
+      var btn = document.createElement('button');
+      btn.type = 'button'; btn.className = 'cmdk-item' + (idx === activeIndex ? ' active' : '');
+      btn.setAttribute('role','option');
+      btn.setAttribute('aria-selected', idx === activeIndex ? 'true' : 'false');
+      btn.innerHTML = '<span class="cmdk-item-label"></span><span class="cmdk-item-meta"></span>';
+      btn.querySelector('.cmdk-item-label').textContent = cmd.label;
+      btn.querySelector('.cmdk-item-meta').textContent = cmd.meta;
+      btn.addEventListener('click', function(){ run(idx); });
+      btn.addEventListener('mousemove', function(){ if (activeIndex !== idx){ activeIndex = idx; updateActive(); } });
+      list.appendChild(btn);
+    });
+  }
+  function updateActive(){
+    var items = list.querySelectorAll('.cmdk-item');
+    items.forEach(function(item, i){
+      var on = i === activeIndex;
+      item.classList.toggle('active', on);
+      item.setAttribute('aria-selected', on ? 'true' : 'false');
+      if (on) item.scrollIntoView({block:'nearest'});
+    });
+  }
+  function openPalette(){
+    lastFocus = document.activeElement;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden','false');
+    input.value = '';
+    filtered = commands.slice();
+    activeIndex = 0;
+    render();
+    setTimeout(function(){ input.focus(); }, 20);
+  }
+  function closePalette(){
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden','true');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  function run(idx){
+    var cmd = filtered[idx]; if (!cmd) return;
+    closePalette();
+    cmd.action();
+  }
+
+  input.addEventListener('input', function(){
+    var q = input.value.toLowerCase().trim();
+    filtered = !q ? commands.slice() : commands.filter(function(c){ return (c.label + ' ' + c.group + ' ' + c.meta).toLowerCase().indexOf(q) !== -1; });
+    activeIndex = 0;
+    render();
+  });
+
+  input.addEventListener('keydown', function(e){
+    if (e.key === 'ArrowDown') { e.preventDefault(); if (filtered.length) { activeIndex = (activeIndex + 1) % filtered.length; updateActive(); } }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); if (filtered.length) { activeIndex = (activeIndex - 1 + filtered.length) % filtered.length; updateActive(); } }
+    else if (e.key === 'Enter') { e.preventDefault(); run(activeIndex); }
+    else if (e.key === 'Escape') { e.preventDefault(); closePalette(); }
+  });
+
+  modal.addEventListener('click', function(e){ if (e.target.closest('[data-cmdk-close]')) closePalette(); });
+  if (trigger) trigger.addEventListener('click', function(){ modal.classList.contains('open') ? closePalette() : openPalette(); });
+
+  document.addEventListener('keydown', function(e){
+    var key = e.key.toLowerCase();
+    if ((e.ctrlKey || e.metaKey) && key === 'k') {
+      e.preventDefault();
+      modal.classList.contains('open') ? closePalette() : openPalette();
+    } else if (key === 'escape' && modal.classList.contains('open')) {
+      e.preventDefault();
+      closePalette();
+    }
+  });
+})();
+
+// Live Karachi clock
+(function(){
+  var el = document.getElementById('karachi-time');
+  if (!el) return;
+  var fmt = null;
+  try {
+    fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Karachi', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+  } catch(e) {}
+  function tick(){
+    try {
+      var parts = fmt ? fmt.formatToParts(new Date()) : null;
+      if (parts) {
+        var get = function(t){ var p = parts.find(function(x){ return x.type === t; }); return p ? p.value : ''; };
+        el.textContent = get('hour') + ':' + get('minute') + ':' + get('second') + ' ' + get('dayPeriod') + ' PKT';
+      } else {
+        el.textContent = new Date().toLocaleTimeString('en-US') + ' PKT';
+      }
+    } catch(e) { el.textContent = '--:-- -- PKT'; }
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+// Live GitHub & PyPI telemetry
+(function(){
+  var verEl = document.getElementById('pypi-version');
+  var repoEl = document.getElementById('github-repo-count');
+  if (verEl) {
+    fetch('https://pypi.org/pypi/finrix/json', { cache: 'no-store' }).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+      if (d && d.info && d.info.version) verEl.textContent = 'v' + d.info.version;
+    }).catch(function(){});
+  }
+  if (repoEl) {
+    fetch('https://api.github.com/users/carnoba', { headers: { 'Accept': 'application/vnd.github+json' } }).then(function(r){ return r.ok ? r.json() : null; }).then(function(d){
+      if (d && typeof d.public_repos === 'number') repoEl.textContent = String(d.public_repos);
+    }).catch(function(){});
+  }
+})();

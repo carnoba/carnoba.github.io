@@ -23,6 +23,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23111214'/%3E%3Ctext x='32' y='39' font-family='Georgia,serif' font-size='30' fill='%23D4A373' text-anchor='middle'%3EH%3C/text%3E%3C/svg%3E">
+  <link rel="alternate" type="text/plain" href="/llms.txt" title="LLMs.txt">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -32,9 +33,14 @@
       <a class="brand" href="#home" aria-label="Home">
         <span class="brand-mark">@carnoba</span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
-        <span></span><span></span>
-      </button>
+      <div class="nav-actions">
+        <button class="cmdk-trigger" type="button" id="cmdk-trigger" aria-label="Open command palette (Ctrl+K)">
+          <span class="cmdk-trigger-icon" aria-hidden="true">⌘K</span>
+        </button>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu">
+          <span></span><span></span>
+        </button>
+      </div>
       <ul class="nav-menu" id="nav-menu">
         <li><a href="#biography" class="nav-link">Biography</a></li>
         <li><a href="#experience" class="nav-link">Experience</a></li>
@@ -91,7 +97,7 @@
               </div>
               <div class="glance-item">
                 <span class="glance-key">Open Source</span>
-                <span class="glance-value">PyPI: finrix <span class="mono">v1.0.7</span> <span class="glance-muted">&amp; 10+ OSS Repos</span></span>
+                <span class="glance-value">PyPI: finrix <span class="mono" id="pypi-version">v1.0.7</span> <span class="glance-muted">&amp; <span id="github-repo-count">10+</span> OSS Repos</span></span>
               </div>
               <div class="glance-item">
                 <span class="glance-key">Competitions</span>
@@ -99,7 +105,7 @@
               </div>
               <div class="glance-item">
                 <span class="glance-key">Based in</span>
-                <span class="glance-value">Karachi, Pakistan</span>
+                <span class="glance-value">Karachi, Pakistan · <span class="mono" id="karachi-time">--:-- -- PKT</span></span>
               </div>
               <div class="glance-item">
                 <span class="glance-key">Current focus</span>
@@ -546,6 +552,25 @@
     ]
   }
   </script>
+
+  <!-- Command Palette -->
+  <div class="cmdk" id="cmdk-modal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Command palette">
+    <div class="cmdk-backdrop" data-cmdk-close></div>
+    <div class="cmdk-panel" role="document">
+      <div class="cmdk-head">
+        <span class="cmdk-prompt mono" aria-hidden="true">&gt;</span>
+        <input class="cmdk-input" id="cmdk-input" type="text" placeholder="Type a command or search..." autocomplete="off" spellcheck="false" aria-label="Search commands">
+        <kbd class="cmdk-esc mono">ESC</kbd>
+      </div>
+      <div class="cmdk-body" id="cmdk-list" role="listbox" aria-label="Commands"></div>
+      <div class="cmdk-foot mono">
+        <span><kbd>↑</kbd><kbd>↓</kbd> navigate</span>
+        <span><kbd>↵</kbd> select</span>
+        <span><kbd>esc</kbd> close</span>
+      </div>
+    </div>
+  </div>
+  <div class="cmdk-toast" id="cmdk-toast" aria-live="polite" aria-atomic="true"></div>
 
   <script src="js/main.js"></script>
 </body>
