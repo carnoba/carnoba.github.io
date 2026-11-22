@@ -31,20 +31,45 @@
 
   // --- IntersectionObserver reveal animations ---
   const observerOptions = {
-    threshold: 0.12,
-    rootMargin: "0px 0px -80px 0px",
+    threshold: 0.10,
+    rootMargin: "0px 0px -60px 0px",
   };
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add("show");
+        entry.target.style.opacity = "1";
+        entry.target.style.transform = "none";
         observer.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  const revealEls = document.querySelectorAll(".reveal");
+  revealEls.forEach((el) => observer.observe(el));
+
+  // --- Safe fallback: force-show any reveal still stuck after a short timeout ---
+  // Guarantees zero blank areas even if IntersectionObserver never fires
+  // (e.g., above-the-fold elements on load, or observer not supported).
+  setTimeout(() => {
+    document.querySelectorAll(".reveal").forEach((el) => {
+      if (!el.classList.contains("show")) {
+        el.classList.add("show");
+        el.style.opacity = "1";
+        el.style.transform = "none";
+      }
+    });
+  }, 700);
+
+  // If IntersectionObserver is not supported, show everything immediately.
+  if (!("IntersectionObserver" in window)) {
+    revealEls.forEach((el) => {
+      el.classList.add("show");
+      el.style.opacity = "1";
+      el.style.transform = "none";
+    });
+  }
 
   // --- Project category filtering ---
   const filterBtns = document.querySelectorAll(".filter-btn");
@@ -71,4 +96,23 @@
       });
     });
   });
+
+  // --- Certificate assets gallery (from /assets/certificates/*.jfif) ---
+  const assetGrid = document.getElementById("asset-grid");
+  const certFiles = [
+    "1785609091092.jfif", "1785609322539.jfif", "1785609539134.jfif",
+    "1785609671575.jfif", "1785609872085.jfif", "1785652677040.jfif",
+    "1785653064597.jfif", "1785653183241.jfif", "1785653242301.jfif"
+  ];
+  if (assetGrid) {
+    certFiles.forEach((file, i) => {
+      const img = document.createElement("img");
+      img.src = `assets/certificates/${file}`;
+      img.alt = `Certificate ${i + 1}`;
+      img.loading = "lazy";
+      img.onerror = () => { img.style.display = "none"; };
+      assetGrid.appendChild(img);
+    });
+  }
+
 })();

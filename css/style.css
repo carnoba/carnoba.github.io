@@ -172,6 +172,10 @@ img { max-width: 100%; display: block; }
   text-transform: uppercase; letter-spacing: 0.1em;
 }
 
+.hero .reveal,
+.hero .reveal--right {
+  opacity: 1 !important; transform: none !important;
+}
 .hero-visual {
   position: relative; height: 360px; display: flex;
   align-items: center; justify-content: center;
@@ -395,6 +399,90 @@ img { max-width: 100%; display: block; }
   color: var(--text-dimmed); font-size: 0.78rem; text-align: center;
 }
 
+/* --- Hero role / social --- */
+.hero-role {
+  font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em;
+  color: var(--cyan); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+}
+.hero-social {
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.soc-btn.soc--hf:hover { border-color: #ff8080; color: #ff8080; }
+.soc-btn.soc--zenodo:hover { border-color: #4db5ff; color: #4db5ff; }
+.soc-btn.soc--email:hover { border-color: var(--emerald); color: var(--emerald); }
+
+/* --- Biography chapters --- */
+.biography { padding: 64px 0; }
+.bio-chapters {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+.bio-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius-lg); padding: 22px; display: flex; flex-direction: column;
+}
+.bio-chip {
+  font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em;
+  color: var(--emerald); background: rgba(16,185,129,0.10); padding: 3px 10px;
+  border-radius: 6px; border: 1px solid rgba(16,185,129,0.18); display: inline-block; margin-bottom: 10px;
+}
+.bio-card h3 { font-size: 1.05rem; font-weight: 800; color: var(--text); margin-bottom: 6px; letter-spacing: -0.01em; }
+.bio-year { font-size: 0.8rem; font-weight: 600; color: var(--cyan); margin-left: 6px; }
+.bio-org { font-size: 0.82rem; font-weight: 700; color: var(--emerald); margin-bottom: 8px; }
+.bio-card p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.65; margin-bottom: 0; }
+
+/* --- Certifications --- */
+.certifications { padding: 64px 0; background: var(--bg-alt); }
+.cert-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px; margin-bottom: 34px;
+}
+.cert-card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column;
+}
+.cert-badge {
+  font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--cyan); background: rgba(34,211,238,0.08); padding: 3px 10px;
+  border-radius: 6px; border: 1px solid rgba(34,211,238,0.15); margin-bottom: 10px; display: inline-block;
+}
+.cert-card h3 { font-size: 0.95rem; font-weight: 800; color: var(--text); margin-bottom: 6px; line-height: 1.3; }
+.cert-issuer { font-size: 0.78rem; color: var(--emerald); font-weight: 700; margin-bottom: 4px; }
+.cert-date { font-size: 0.75rem; color: var(--text-dimmed); margin-bottom: 10px; margin-top: auto; }
+
+.cert-assets { margin-top: 10px; }
+.cert-assets h3 { font-size: 1rem; font-weight: 800; color: var(--text); margin-bottom: 6px; }
+.asset-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+}
+.asset-grid img {
+  width: 100%; aspect-ratio: 1 / 1.29; object-fit: cover;
+  border-radius: var(--radius-sm); border: 1px solid var(--border);
+  background: var(--card);
+}
+
+/* --- Skills --- */
+.skills { padding: 64px 0; }
+
+/* --- Experience timeline list --- */
+.timeline-list { list-style: none; padding-left: 0; margin: 8px 0 0 0; }
+.timeline-list li {
+  color: var(--text-dim); font-size: 0.9rem; line-height: 1.6;
+  position: relative; padding-left: 14px; margin-bottom: 6px;
+}
+.timeline-list li::before {
+  content: ""; position: absolute; left: 0; top: 0.85em;
+  width: 6px; height: 6px; border-radius: 50%; background: var(--emerald);
+}
+
+/* --- Responsive extensions --- */
+@media (max-width: 768px) {
+  .hero-social { justify-content: center; }
+  .bio-chapters, .cert-grid { grid-template-columns: 1fr; }
+  .asset-grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); }
+}
+
 /* --- Reveal animations --- */
 .reveal {
   opacity: 0; transform: translateY(22px);
@@ -402,6 +490,16 @@ img { max-width: 100%; display: block; }
 }
 .reveal.show { opacity: 1; transform: translateY(0); }
 .reveal--right { transform: translateX(30px); }
+
+/* Accessibility: disable motion reveals for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal--right {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
