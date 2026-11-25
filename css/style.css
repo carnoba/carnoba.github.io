@@ -857,3 +857,47 @@ code, .mono { font-family: var(--mono); }
 
 
 .contact-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; }
+
+/* --- Biography dividers & live log --- */
+.bio-divider {
+  margin: 32px 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+  width: 100%;
+}
+.bio-callout {
+  background: rgba(212, 163, 115, 0.04);
+  border: 1px solid rgba(212, 163, 115, 0.18);
+  border-radius: 10px;
+  padding: 28px 32px;
+  margin-top: 32px;
+}
+.bio-callout h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: var(--text);
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+.live-log-item {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 14px;
+  align-items: flex-start;
+}
+.live-log-label {
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  flex-shrink: 0;
+  min-width: 130px;
+  padding-top: 2px;
+}
+.live-log-text {
+  color: var(--muted);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}

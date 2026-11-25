@@ -2,6 +2,33 @@
 
 > Syed Muhammad Haris (@carnoba) is a Data Scientist, AI Engineer, and Commercial Operations Lead based in Karachi, Pakistan. He builds quantitative systems, machine learning pipelines, and autonomous agents grounded in commercial realities.
 
+## Biography (Full Narrative)
+
+### Chapter 1: Curiosity, Crafts & Chemical Formulations (2019–2025)
+Long before writing code, obsessed with how everyday products are made and the business mechanics behind turning raw materials into something people buy. Between 2019 and 2020, at ~13-14 years old, curiosity shifted toward industrial chemistry. Searched Karachi's wholesale chemical markets for small experimental batches. First detergent powder formulation took nearly five hours with a surprise exothermic heat spike when soda ash reacted with sulphonic acid—but the batch worked.
+
+Built a dedicated R&D formulation logbook across detergents, dishwash liquids, handwashes, surface cleaners, and 2-in-1 formulations. Studied chemical properties, pH balance, hard-water performance, packaging, and unit-cost margins. Met the founder of Falcon Engineering (heavy-machinery manufacturer); as a teenager among seasoned operators in their thirties, walked through their production floor, presented base formulations, and implemented raw-material substitution advice to push unit costs down. Supplemented with University of Tokyo chemical analysis coursework and industrial chemistry texts. When the Russia–Ukraine war disrupted imported chemical supply chains and inflated raw material costs, scaling became unsustainable—so in 2025, after bringing on partners and exhausting lean alternatives, made the disciplined call to pause the venture and focus on technical career.
+
+### Chapter 2: Scaling Gaming Communities, Bots & Web Portals (2022–2025)
+Alongside manufacturing, channeled competitive streak into gaming and community engineering. In 2022, launched a YouTube gaming channel (flagship video: 110,000+ organic views) and founded Carnix Network around competitive Minecraft PvP. Reached LT2 in Netherite Potion (NethPot) and HT4+ across competitive modes, regularly dominating outnumbered team engagements. Players asked for coaching and tier-testing; scaled into a 2,600+ member ecosystem handling 100–200 test requests daily.
+
+Built custom Discord bots for automated queues, rankings, and giveaways, then developed a companion web platform with three separate portals for administrators, testers, and players to track live progress. Managed a volunteer team of admins, managers, maintenance staff, and testers while hosting tournaments and server collaborations—learned real leadership under pressure. In 2023, an early operations role at IF Logics sharpened Excel and lead-verification workflows before stepping away to focus on studies and software engineering.
+
+### Chapter 3: Live Markets, AI Ventures & Factory-Floor Analytics (2026)
+Moving from web development into data science, machine learning, and agentic AI. Co-launched an AI automation agency with brother—building Nexly, a Streamlit-powered web-scraping and B2B lead intelligence engine, alongside custom AI voice receptionists—while configuring international payment infrastructure and outbound client operations from scratch.
+
+Interest in finance pulled into live global markets on Investing.com, sharing real-time XAU/USD and equity insights. Focused on strict risk control, fast break-evens, and drawdown management, helping traders protect capital during geopolitical sell-offs including the Iran–US market shock. Studied institutional market microstructure and Bloomberg-style workflows, inspiring FINRIX (pip install finrix), an open-source quantitative trading and macro forecasting terminal. Gained startup due diligence lessons—turning down a Dubai-based YC co-founder offer after reviewing misaligned equity terms; served as technical lead/CTO on Sisilic OS (semiconductor BOM intelligence platform) before pausing due to deep-tech capital requirements.
+
+Completed Data Science internship at Visa Bridge; joined Agar Plastics Pvt Ltd in Commercial Operations & Data Analytics. Beyond raw material costing, vendor billing reconciliations, and Excel rate variance modeling, learned the entire production floor—mapping operational workflows, resolving stock and production bottlenecks, building analytical decision reports for the General Manager.
+
+### Chapter 4: Research, Competitive ML & Current Focus (Present)
+Pursuing B.S. in Artificial Intelligence at Dawood University of Engineering & Technology (DUET) while publishing open-access geospatial ML research (Zenodo and DMLR) and competing on Kaggle and Zindi. Across setbacks, financial crunches, and pivots: whenever entering a domain, learn it from the ground up and build systems that hold up in the real world.
+
+## Currently Building & Competing — Live Log
+- **Academic & Research:** B.S. Artificial Intelligence @ DUET · Published open-access research on village-disjoint validation for climate-sensitive child mortality risk in Uganda (Zenodo DOI: 10.5281/zenodo.23036631; DMLR submission).
+- **Competitive ML:** Peaked at Rank #11 (Public LB) and finished Top 6% (#214 / 3,575+ teams) in Kaggle Playground S6E9; Rank #384 / 1,626 (Top 23.6%) in Zindi AI4EAC; actively competing in new Kaggle challenges (including Enveda CASMI 2026) on the path toward Kaggle Grandmaster.
+- **Active Engineering:** Expanding FINRIX (v1.0.7 on PyPI) with quantitative risk engines, multi-agent workflows, and macro forecasting pipelines.
+
 ## Identity & Education
 
 - **Name:** Syed Muhammad Haris (carnoba)
