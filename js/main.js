@@ -173,15 +173,16 @@ try {
 
   // Certifications data & modal
   var certs = [
-    { issuer: "IBM / Cognitive Class", title: "Python for Data Science", date: "Issued Feb 2026", credentialId: "d5606673-8add-436c-9691-3767a5a0e98a", verify: "https://courses.cognitiveclass.ai/", asset: "assets/certificates/ibm-python-for-data-science.jpg", type: "image" },
-    { issuer: "MongoDB University", title: "Building RAG Apps Using MongoDB", date: "Issued Aug 2026", credentialId: "e98eadc3-b73e-4e9d-b3aa-f51dc5c3a162", verify: "https://university.mongodb.com/", asset: "assets/certificates/mongodb-building-rag-apps.jpg", type: "image" },
-    { issuer: "UniAthena / Cambridge International Qualifications, UK", title: "Basics in Machine Learning", date: "Verified credential", credentialId: "Available on request", verify: "https://uniathena.com/", asset: "assets/certificates/uniathena-basics-in-machine-learning.jpg", type: "image" },
-    { issuer: "IBM Skills Network / Cognitive Class", title: "Prompt Engineering for Everyone", date: "Verified credential", credentialId: "Available on request", verify: "https://courses.cognitiveclass.ai/", asset: "assets/certificates/ibm-prompt-engineering-for-everyone.jpg", type: "image" },
-    { issuer: "HP LIFE Foundation", title: "Data Science & Analytics", date: "Verified credential", credentialId: "Available on request", verify: "https://www.life-global.org/", asset: "assets/certificates/hp-life-data-science-analytics.jpg", type: "image" },
-    { issuer: "The Open University (OpenLearn), UK", title: "Introduction to Bookkeeping & Accounting", date: "Verified credential", credentialId: "B190_1", verify: "https://www.open.edu/openlearn/", asset: "assets/certificates/openlearn-introduction-to-bookkeeping-accounting.jpg", type: "image", extraAsset: "assets/certificates/accounting B190_1_statement.pdf", extraType: "pdf" },
-    { issuer: "Bank of America / Forage", title: "Investment Banking Virtual Experience", date: "Verified credential", credentialId: "Available on request", verify: "https://www.theforage.com/", asset: "assets/certificates/bank-of-america-investment-banking.jpg", type: "image" },
-    { issuer: "VisaBridge", title: "Data Science & Analytics Internship", date: "Feb 2026", credentialId: "Available on request", verify: "mailto:carnoba9@gmail.com", asset: "assets/certificates/visabridge-data-science-internship.jpg", type: "image", extraAsset: "assets/certificates/internship_certificate.pdf", extraType: "pdf" }
-  ];
+  { issuer: "MongoDB", title: "Building RAG Apps Using MongoDB", date: "August 2026", credentialId: "Available on request", verify: "https://university.mongodb.com/", asset: "assets/certificates/mongodb-rag-apps.png", type: "image" },
+  { issuer: "IBM Skills Network", title: "Python for Data Science (Verified Badge)", date: "February 2026", credentialId: "Available on request", verify: "https://courses.cognitiveclass.ai/", asset: "assets/certificates/ibm-python-for-data-science-badge.png", type: "image" },
+  { issuer: "Cognitive Class · IBM", title: "Python 101 for Data Science (PY0101EN)", date: "February 2026", credentialId: "Available on request", verify: "https://courses.cognitiveclass.ai/", asset: "assets/certificates/cognitive-class-python-101.png", type: "image" },
+  { issuer: "Cognitive Class · IBM Skills Network", title: "Prompt Engineering for Everyone (AI0117EN)", date: "February 2026", credentialId: "Available on request", verify: "https://courses.cognitiveclass.ai/", asset: "assets/certificates/cognitive-class-prompt-engineering.png", type: "image" },
+  { issuer: "UniAthena · Cambridge International Qualifications, UK", title: "Basics in Machine Learning", date: "February 2026", credentialId: "Available on request", verify: "https://uniathena.com/", asset: "assets/certificates/uniathena-basics-in-machine-learning.png", type: "image" },
+  { issuer: "HP LIFE · HP Foundation", title: "Data Science & Analytics", date: "February 2026", credentialId: "Available on request", verify: "https://www.life-global.org/", asset: "assets/certificates/hp-life-data-science-analytics.png", type: "image" },
+  { issuer: "VisaBridge", title: "Data Science Internship � Certificate of Completion", date: "February 2026", credentialId: "Available on request", verify: "mailto:carnoba9@gmail.com", asset: "assets/certificates/visabridge-data-science-internship.png", type: "image" },
+  { issuer: "Bank of America · Forage", title: "Investment Banking Job Simulation", date: "June 2026", credentialId: "Available on request", verify: "https://www.theforage.com/", asset: "assets/certificates/forage-bofa-investment-banking.png", type: "image" },
+  { issuer: "The Open University · OpenLearn (UK)", title: "Introduction to Bookkeeping and Accounting (B190_1)", date: "July 2026", credentialId: "B190_1", verify: "https://www.open.edu/openlearn/", asset: "assets/certificates/openlearn-bookkeeping-accounting.png", type: "image" }
+];
 
   var certGrid = document.getElementById("cert-grid");
   var modal = document.getElementById("cert-modal");
